@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	
+	<head>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta name="description" content="Projeto do BootCamp Santander da DIO">
+		<title>Desafio Hero - Partidas Ranqueadas</title>
+		
+		<link rel="icon" type="image/png" sizes="16x16" href="src/public/favicon/16x16.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="src/public/favicon/32x32.png">
+		<link rel="icon" type="image/ico" sizes="48x48" href="src/public/favicon/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="src/public/favicon/apple-touch-icon.png">
+		<link rel="manifest" href="src/public/favicon/site.webmanifest">
+		
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+	</head>
+
+	<body>
+		
+		<header>
+			
+			<span>
+				
+				<h1>Desafio Hero</h1>
+				
+			</span>
+			
+		</header>
+		
+		<main>
+			
+			<div name="tela" id="tela-game">
+				
+				<!-- Tela Play -->
+				<div name="tela-play" id="screen-play">
+					
+					<div>
+					
+						<button id="button-play" title="Jogar">
+							<img src="src/screen-play/img/play.png" alt="▶️"/>
+						</button>
+						
+						<p id="text-play">PLAY</p>
+					
+					</div>
+					
+				</div>
+				
+				
+				<!-- Tela Menu Inicial -->
+				<div name="menu-inicial" id="screen-menu">
+					
+					<p id="p-screen-menu">MENU</p>
+					
+					<div id="buttons-menu">
+						
+						<button id="button-game-combat-mode" title="Jogar">
+							Modo Combate ⚔️
+						</button>
+						
+						<button id="button-game-guessed-mode" title="Jogar">
+							Modo Adivinhou 🧙‍♂️
+						</button>
+						
+					</div>
+					
+				</div>
+				
+				
+				<!-- Tela Jogo Modo Combate -->
+				<div name="jogo-combate" id="screen-combat-game">
+					
+					<div id="div-exit-combat-game">
+						
+						<button id="button-exit-combat-game" title="Voltar Para Menu">
+							❌
+						</button>
+						
+					</div>
+					
+					<div id="div-title-screen-combat-game">
+						
+						<p>Modo Combate ⚔️</p>
+						
+					</div>
+					
+					<div id="div-text-game-combat-victory-defeat">
+						
+						<div id="div-combat-game-victory">
+							
+							<p id="p-combat-game-victory">Vitorias: 0</p>
+							
+						</div>
+						
+						<div id="div-combat-game-defeat">
+							
+							<p id="p-combat-game-defeat">Derrotas: 0</p>
+							
+						</div>
+						
+					</div>
+					
+					<div id="div-lifes-game-combat">
+						
+						<div id="div-life-combat-game-esquire-red">
+							
+							<p id="p-life-combat-game-esquire-red">❤️❤️❤️</p>
+							
+						</div>
+						
+						<div id="div-life-combat-game-esquire-blue">
+							
+							<p id="p-life-combat-game-esquire-blue">❤️❤️❤️</p>
+							
+						</div>
+						
+					</div>
+					
+					<div id="div-imgs-combat-game">
+						
+						<div id="div-img-esquire-red">
+							
+							<img id="img-esquire-red" src="src/screen-combat-game/img/esquire_red/idle.png" alt="Cavaleiro com Detalhes Vermelhos, Com Espada e Escudo" />
+							
+						</div>
+						
+						<div id="div-img-esquire-blue">
+							
+							<img id="img-esquire-blue" src="src/screen-combat-game/img/esquire_blue/idle.png" alt="Cavaleiro com Detalhes Azuis, Com Espada e Escudo" />
+							
+						</div>
+						
+						
+					</div>
+					
+					<div>
+						
+						<sub id="sub-notificacion-situacion-round-combat-game">Imagem Esquire [Animated] - Classic Hero Edit de Umz Games do OpenGameArt</sub>
+						
+					</div>
+					
+					<div id="buttons-combat-game">
+						
+						<button id="button-combat-game-attack" title="Atacar">
+							🗡️
+						</button>
+						
+						<button id="button-combat-game-defense" title="Defender">
+							🛡️
+						</button>
+						
+						<button id="button-combat-game-idle" title="Sem Ação/Parado">
+							🚫
+						</button>
+						
+						<div>
+							
+							<p><sub>Toque/Clique nos botões ou use use o teclado </sub></p>
+							<p><sub>tecla a para atacar (🗡️), tecla s para defender (🛡️) e tecla d para sem ação (🚫)</sub></p>
+							
+						</div>
+						
+					</div>
+					
+					<div id="buttons-combat-game-continue-exit">
+						
+						<button id="button-combat-game-continue" title="Continuar">
+							Continuar
+						</button>
+						
+						<button id="button-combat-game-exit" title="Sair">
+							Sair
+						</button>
+						
+					</div>
+					
+					
+				</div>
+				
+				<!-- Tela Tabela Jogo Modo Combate -->
+				<div name="tabela-classificação-game-combate" id="screen-table-combat-game">
+					
+					<div>
+						
+						<p id="p-details-rounds-combat-game">Você tem 10 Vitórias e 5 Derrotas</p>
+						<p id="p-score-combat-game">Seu Saldo de Vitórias é de 5</p>
+						<p id="p-level-message-combat-game">O Herói tem de saldo de 5 está no nível de Ferro</p>
+						
+					</div>
+					
+					<div>
+					
+					<table id="table-combat-game" border="0" cellspacing="0" cellpadding="0">
+						
+						<colgroup>
+							<col/>
+							<col/>
+							<col/>
+						</colgroup>
+						
+						<tr>
+							
+							<td>
+								<p>N.º</p>
+							</td>
+							
+							<td>
+								<p>Saldo de Vitórias</p>
+							</td>
+							
+							<td>
+								<p>Nível</p>
+							</td>
+							
+						</tr>
+						
+						<tr>
+							
+							<td>
+								<p>1</p>
+							</td>
+							
+							<td>
+								<p>Menos de 11</p>
+							</td>
+							
+							<td>
+								<p>Ferro</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>2</p>
+							</td>
+							
+							<td>
+								<p>entre 11 e 20</p>
+							</td>
+							
+							<td>
+								<p>Bronze</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>3</p>
+							</td>
+							
+							<td>
+								<p>Entre 21 e 50</p>
+							</td>
+							
+							<td>
+								<p>Prata</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>4</p>
+							</td>
+							
+							<td>
+								<p>Entre 51 e 80</p>
+							</td>
+							
+							<td>
+								<p>Ouro</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>5</p>
+							</td>
+							
+							<td>
+								<p>Entre 81 e 90</p>
+							</td>
+							
+							<td>
+								<p>Diamante</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>6</p>
+							</td>
+							
+							<td>
+								<p>Entre 91 e 100</p>
+							</td>
+							
+							<td>
+								<p>Lendário</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>7</p>
+							</td>
+							
+							<td>
+								<p>Mais que 100</p>
+							</td>
+							
+							<td>
+								<p>Imortal</p>
+							</td>
+							
+						</tr>
+						
+</table>
+					
+					</div>
+					
+					<div>
+						
+						<p id="p-highscore-combat-game">Sua Maior Pontução: 35</p>
+						
+					</div>
+					
+					<div>
+						
+						<button id="button-play-again-combat-game" title="Jogar de Novo">
+							De Novo
+						</button>
+						
+						<button id="button-menu-combat-game" title="Voltar Para o Menu">
+							Menu
+						</button>
+						
+					</div>
+					
+				</div>
+				
+				
+				<!-- Tela Jogo Modo Adivinhou -->
+				<div name="jogo-adivinhou" id="screen-guessed-game">
+					
+					<div id="div-exit-guessed-game">
+						
+						<button id="button-exit-guessed-game" title="Voltar Para Menu">
+							❌
+						</button>
+						
+					</div>
+					
+					<div id="div-title-screen-guessed-game">
+						
+						<p>Modo Adivinhou 🧙‍♂️</p>
+						
+					</div>
+					
+					<div id="div-text-game-guessed-victory-defeat">
+						
+						<div id="div-guessed-game-victory">
+							
+							<p id="p-guessed-game-victory">Vitorias: 0</p>
+							
+						</div>
+						
+						<div id="div-guessed-game-defeat">
+							
+							<p id="p-guessed-game-defeat">Derrotas: 0</p>
+							
+						</div>
+						
+					</div>
+					
+					
+					<div id="div-imgs-guessed-game">
+						
+						<div id="div-img-pirate-red">
+							
+							<img id="img-pirate-red" src="src/screen-guessed-game/img/pirate_red/idle.png"  alt="Pirata Sem Tapa Olho com Detalhes Vermelhos, Com Espada e Escudo" />
+							
+						</div>
+						
+						<div id="div-img-pirate-blue">
+							
+							<img id="img-pirate-blue" src="src/screen-guessed-game/img/pirate_blue/idle.png" alt="Pirata Sem Tapa Olho com Detalhes Vermelhos, Com Espada e Escudo" />
+							
+						</div>
+						
+						
+					</div>
+					
+					<div>
+						
+						<sub id="sub-notificacion-situacion-round-guessed-game">Imagem Pixel Pirate Character de hippo do OpenGameArt</sub>
+						
+					</div>
+					
+					<div id="buttons-guessed-game">
+						
+						<button id="button-guessed-game-attack" title="Atacar">
+							🗡️
+						</button>
+						
+						<button id="button-guessed-game-defense" title="Defender">
+							🛡️
+						</button>
+						
+						<button id="button-guessed-game-idle" title="Sem Ação/Parado">
+							🚫
+						</button>
+						
+						<div>
+							
+							<p><sub>Toque/Clique nos botões ou use use o teclado </sub></p>
+							<p><sub>tecla a para atacar (🗡️), tecla s para defender (🛡️) e tecla d para sem ação (🚫)</sub></p>
+							
+						</div>
+						
+					</div>
+					
+					<div id="buttons-guessed-game-terminate">
+						
+						<button id="button-guessed-game-terminate" title="Finalizar">
+							Encerrar
+						</button>
+						
+					</div>
+					
+					
+				</div>
+				
+				<!-- Tela Tabela Jogo Modo Adivinhou -->
+				<div name="tabela-classificação-game-adivinhou" id="screen-table-guessed-game">
+					
+					<div>
+						
+						<p id="p-details-rounds-guessed-game">Você tem 10 Vitórias e 5 Derrotas</p>
+						<p id="p-score-guessed-game">Seu Saldo de Vitórias é de 5</p>
+						<!-- O Herói tem de saldo de **{saldoVitorias}** está no nível de **{nivel}** -->
+						<p id="p-level-message-guessed-game">O Herói tem de saldo de 5 está no nível de Ferro</p>
+						
+					</div>
+					
+					<div>
+					
+					<table id="table-guessed-game" border="0" cellspacing="0" cellpadding="0">
+						
+						<colgroup>
+							<col/>
+							<col/>
+							<col/>
+						</colgroup>
+						
+						<tr>
+							
+							<td>
+								<p>N.º</p>
+							</td>
+							
+							<td>
+								<p>Saldo de Vitórias</p>
+							</td>
+							
+							<td>
+								<p>Nível</p>
+							</td>
+							
+						</tr>
+						
+						<tr>
+							
+							<td>
+								<p>1</p>
+							</td>
+							
+							<td>
+								<p>Menos de 11</p>
+							</td>
+							
+							<td>
+								<p>Ferro</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>2</p>
+							</td>
+							
+							<td>
+								<p>entre 11 e 20</p>
+							</td>
+							
+							<td>
+								<p>Bronze</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>3</p>
+							</td>
+							
+							<td>
+								<p>Entre 21 e 50</p>
+							</td>
+							
+							<td>
+								<p>Prata</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>4</p>
+							</td>
+							
+							<td>
+								<p>Entre 51 e 80</p>
+							</td>
+							
+							<td>
+								<p>Ouro</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>5</p>
+							</td>
+							
+							<td>
+								<p>Entre 81 e 90</p>
+							</td>
+							
+							<td>
+								<p>Diamante</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>6</p>
+							</td>
+							
+							<td>
+								<p>Entre 91 e 100</p>
+							</td>
+							
+							<td>
+								<p>Lendário</p>
+							</td>
+							
+						</tr>
+							
+						<tr>
+							
+							<td>
+								<p>7</p>
+							</td>
+							
+							<td>
+								<p>Mais que 100</p>
+							</td>
+							
+							<td>
+								<p>Imortal</p>
+							</td>
+							
+						</tr>
+						
+</table>
+					
+					</div>
+					
+					<div>
+						
+						<p id="p-highscore-guessed-game">Sua Maior Pontução: 35</p>
+						
+					</div>
+					
+					<div>
+						
+						<button id="button-play-again-guessed-game" title="Jogar de Novo">
+							De Novo
+						</button>
+						
+						<button id="button-menu-guessed-game" title="Voltar Para o Menu">
+							Menu
+						</button>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</main>
+		
+		
+		<script type="text/javascript" src="script.js"></script>
+		<noscript>Seu navegador não suporta javascript!</noscript>
+		
+	</body>
+
+
+</html>

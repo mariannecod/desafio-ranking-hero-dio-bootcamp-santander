@@ -1,0 +1,96 @@
+		
+		let balance, level_hero;
+		const array_level = ["Ferro","Bronze","Prata","Ouro","Diamante","Lendário","Imortal"];
+		const array_balance = ["10","11 a 20","21 a 50","51 a 80","81 a 90","91 a 100","101"];
+		
+		//Laço de repetição ou loop, mostrar quanto de xp é necessário para chegar em tal nível
+		for (let l = 0; l != array_level.length; l++)
+		{
+		
+			if(l === 0)
+			{
+				
+				console.log("Se XP for menor do que " + array_balance[l] + " = " + array_level[l]);
+				continue;
+				
+			}
+			
+			console.log("Se XP for entre " + array_balance[l] + " = " + array_level[l]);
+			
+			if(l === array_level.length)
+			{
+				
+				console.log("Se XP for maior ou igual " + array_balance[l] + " = " + array_level[l]);
+				continue;
+				
+			}
+		
+		}
+		
+		//Função Verificar Nível do Herói
+		function Return_Level_Hero (points_hero)
+		{
+			
+			if (points_hero < 11)
+			{
+				
+				level_hero = "Ferro";
+				
+			}
+			else if (points_hero < 21)
+			{
+				
+				level_hero = "Bronze";
+				
+			}
+			else if (points_hero < 51)
+			{
+				
+				level_hero = "Prata";
+				
+			}
+			else if (points_hero < 81)
+			{
+				
+				level_hero = "Ouro";
+				
+			}
+			else if (points_hero < 91)
+			{
+				
+				level_hero = "Diamante";
+				
+			}
+			else if (points_hero < 101)
+			{
+				
+				level_hero = "Lendário";
+				
+			}
+			else if (points_hero >= 101)
+			{
+				
+				level_hero = "Imortal";
+				
+			}
+			else
+			{
+				
+				level_hero = "Nível Não Catalogado!";
+				
+			}
+			
+		}
+		
+		//Calcular Saldo do Herói
+		function Calculate_Hero_Balance (number_of_wins,number_of_defeats)
+		{
+			
+			balance = (number_of_wins - number_of_defeats);
+			
+		}
+		
+		Calculate_Hero_Balance (50,32);
+		Return_Level_Hero (balance);
+		
+		console.log("O Herói tem de saldo de " + balance + " está no nível de " + level_hero);
